@@ -110,18 +110,18 @@ export default class ProductManager {
     }
 }
 
-const productos = new ProductManager ('./data/productos.json');
+// const productos = new ProductManager ('./data/productos.json');
 
-const p1 = productos.addProduct("Guitarra ARIA", "Guitarra Criolla", 45000, "img89", "aaa111", 11);
-const p2 = productos.addProduct("Guitarra ARIA 2", "Guitarra Criolla", 55000, "img90", "bbb111", 1);
-const p3 = productos.addProduct("Guitarra CORT", "Guitarra Criolla", 40000, "img91", "ccc111"); // ERROR DE FALTAN CAMPOS
-const p4 = productos.addProduct("Guitarra Fender", "Guitarra acustica", 125000, "img92", "bbb111", 6); //ERROR MISMO CODIGO DE PRODUCTO
-const p5 = productos.addProduct("Guitarra Guild", "Guitarra acustica", 90000, "img93", "aasdbbb111", 2);
+// const p1 = productos.addProduct("Guitarra ARIA", "Guitarra Criolla", 45000, "img89", "aaa111", 11);
+// const p2 = productos.addProduct("Guitarra ARIA 2", "Guitarra Criolla", 55000, "img90", "bbb111", 1);
+// const p3 = productos.addProduct("Guitarra CORT", "Guitarra Criolla", 40000, "img91", "ccc111"); // ERROR DE FALTAN CAMPOS
+// const p4 = productos.addProduct("Guitarra Fender", "Guitarra acustica", 125000, "img92", "bbb111", 6); //ERROR MISMO CODIGO DE PRODUCTO
+// const p5 = productos.addProduct("Guitarra Guild", "Guitarra acustica", 90000, "img93", "aasdbbb111", 2);
 
-console.log({p1, p2, p3, p4, p5}); //MOSTRAR PRODUCTOS AGREGADOS EN CONSOLA
+// console.log({p1, p2, p3, p4, p5}); //MOSTRAR PRODUCTOS AGREGADOS EN CONSOLA
 
-console.log(productos.getProductById(2)) //MOSTRAR PRODUCTO CON ID 2
-console.log(productos.getProductById(9998)) //MOSTRAR PRODUCTO CON ID INEXISTENTE
+// console.log(productos.getProductById(2)) //MOSTRAR PRODUCTO CON ID 2
+// console.log(productos.getProductById(9998)) //MOSTRAR PRODUCTO CON ID INEXISTENTE
 
-console.log(productos.deleteProduct(1)); // ELIMINAR PRODUCTO
-console.log(productos.deleteProduct(9889898));// ELIMINAR PRODUCTO INEXISTENTE
+// console.log(productos.deleteProduct(1)); // ELIMINAR PRODUCTO
+// console.log(productos.deleteProduct(9889898));// ELIMINAR PRODUCTO INEXISTENTE
