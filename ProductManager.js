@@ -71,6 +71,12 @@ export default class ProductManager {
         return productoId ? productoId : `Producto inexistente`;
     }
 
+    getProductCartById(id) {
+        const productoId = this.#products.find(p => p.id === id);
+
+        return productoId ? productoId : false;
+    }
+
     updtaeProduct(id, propiedades) {
 
         try {
@@ -110,7 +116,7 @@ export default class ProductManager {
     }
 }
 
-// const productos = new ProductManager ('./data/productos.json');
+const productos = new ProductManager ('./data/productos.json');
 
 // const p1 = productos.addProduct("Guitarra ARIA", "Guitarra Criolla", 45000, "img89", "aaa111", 11);
 // const p2 = productos.addProduct("Guitarra ARIA 2", "Guitarra Criolla", 55000, "img90", "bbb111", 1);

@@ -23,21 +23,21 @@ router.get('/', (req, res) => {
 //     res.status(201).json(produ);
 // });
 
-// router.put("/:id", (req, res) => {
-//     const { id } = req.params;
-//     const { title, description, price, img, code, stock } = req.body;
-//     const producto = productos.find((producto) => producto.id == id);
-//     if (producto) {
-//         producto.title = title;
-//         producto.description = description;
-//         producto.price = price;
-//         producto.img = img;
-//         producto.code = code;
-//         producto.stock = stock;
-//         return res.json(producto);
-//     }
-//     res.json({ error: "Producto no encontrado" })
-// })
+router.put("/:id", (req, res) => {
+    const { id } = req.params;
+    const { title, description, price, img, code, stock } = req.body;
+    const producto = productos.find((producto) => producto.id == id);
+    if (producto) {
+        producto.title = title;
+        producto.description = description;
+        producto.price = price;
+        producto.img = img;
+        producto.code = code;
+        producto.stock = stock;
+        return res.json(producto);
+    }
+    res.json({ error: "Producto no encontrado" })
+})
 
 // router.delete ("/:id", (req, res) => {
 //     const {id} = req.params;
