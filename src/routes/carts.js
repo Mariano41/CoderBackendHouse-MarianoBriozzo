@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { Router } from "express";
-import Carrito from '../../models/carts.js';
+import Carrito from '../models/carts.js';
 
 const router = Router ();
 

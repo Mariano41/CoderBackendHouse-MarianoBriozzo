@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import ProductManager from '../ProductManager.js';
+import ProductManager from '../models/ProductManager.js';
 
 export default class Carrito{
 
@@ -9,7 +9,7 @@ static #id;
 #products;
 
     constructor() {
-        this.#path= '../data/carts.json';
+        this.#path= './src/data/carts.json';
         this.#carts = this.#leerArchivo();
         Carrito.#id = this.#carts.length > 0 ? this.#carts[this.#carts.length - 1].id : 0;
         this.#products = new ProductManager()
@@ -75,7 +75,7 @@ addProductCart(idCarrito, idProduct){
                     quantity: 1
                 }
                 this.#carts[indiceCarrito].products.push(producto)
-                 
+
             }
 
             writeFileSync(this.#path, JSON.stringify(this.#carts));
@@ -83,7 +83,7 @@ addProductCart(idCarrito, idProduct){
             mensaje = "Producto agregado al Carrito"
 
         }else{
-             mensaje= ""
+            mensaje= ""
         }
 
         return mensaje
