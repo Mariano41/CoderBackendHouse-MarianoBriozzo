@@ -11,7 +11,7 @@ const port = 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api/products', products)
-app.use('/api/carts.js', carts)
+app.use('/api/carts', carts)
 
 app.get('/', function (req, res) {
     return res.send("<h1 style ='color: red'>Desafio para CoderHouse</h1>")
