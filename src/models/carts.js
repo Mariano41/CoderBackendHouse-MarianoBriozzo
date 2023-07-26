@@ -1,5 +1,34 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import ProductManager from '../models/ProductManager.js';
+import mongoosePaginate from 'mongoose-paginate-v2'
+
+
+
+
+
+
+import mongoose from 'mongoose';
+
+const cartsCollection = "carts"
+
+const CartsSchema = new mongoose.Schema({
+    title: String,
+    description: String,
+    price: Number,
+    img: String,
+    code: String,
+    stock: Number
+})
+
+CartsSchema.plugin(mongoosePaginate);
+
+export const cartsModel = mongoose.model( cartsCollection, CartsSchema)
+
+
+
+
+
+
 
 export default class Carrito{
 
@@ -46,9 +75,9 @@ crearCarrito(){
 
 }
 
-// getCarts() {
-//     return this.#carts;
-// }
+getCarts() {
+    return this.#carts;
+}
 
 getCartById(id) {
     const carritoId = this.#carts.find(p => p.id === id);

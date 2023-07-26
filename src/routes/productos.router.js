@@ -6,7 +6,24 @@ const router = Router();
 
 
 
-router.get('/', (req, res) => {
+// router.get('/', (req, res) => {
+//     const { limit } = req.query;
+//     const p = productos.getProduct();
+//     let cantProductos;
+//     if (limit)
+//         cantProductos = p.slice(0, limit)
+//     else
+//         cantProductos = p;
+//     return res.json({ cantTotal: p.length, productosLimitados: cantProductos });
+// });
+
+
+
+router.get('/', async (req, res) => {
+    const {page=1} = req.query;
+    const {docs, hasPrevPage, hasNextPage, prevPage, nextPage, ...rest}=
+    await productsModel.paginate({}, {page, limit: 2, lean: true});
+
     const { limit } = req.query;
     const p = productos.getProduct();
     let cantProductos;
@@ -17,11 +34,7 @@ router.get('/', (req, res) => {
     return res.json({ cantTotal: p.length, productosLimitados: cantProductos });
 });
 
-// router.post("/", (req, res) => {
-//     const produ = req.body;
-//     productos.push(produ);
-//     res.status(201).json(produ);
-// });
+
 
 router.put("/:id", (req, res) => {
     const { id } = req.params;
@@ -39,16 +52,17 @@ router.put("/:id", (req, res) => {
     res.json({ error: "Producto no encontrado" })
 })
 
-// router.delete ("/:id", (req, res) => {
-//     const {id} = req.params;
-//     const producto = productos.find((producto) => producto.id == id);
-//     if (producto){
-//         const index = productos.indexOf(producto);
-//         productos.splice(index, 1);
-//         return res.json(producto);
-//     }
-//     res.json({error: "Producto no encontrado"})
-// })
+
+
+router.delete("/:id", async (req, res) =>{
+    const {id} = req.params
+    try {
+        const resultado = await productos.deleteOne ({ _id:id })
+        return res.json({ status: "success", payload: resultado})
+    } catch (error) {
+        console.log("No se puede eliminar producto:" + error)
+    }
+} )
 
 router.get('/:id', (req, res) => {
     const { id } = req.params

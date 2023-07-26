@@ -6,10 +6,10 @@ const router = Router ();
 
 const cart = new Carrito();
 
-// router.get('/', (req, res) =>{
-//     const result = cart.getCarts()
-//     return res.json({ result })
-// });
+router.get('/', (req, res) =>{
+    const result = cart.getCarts()
+    return res.json({ result })
+});
 
 router.get('/:id', (req, res) =>{ 
     const result = getCartById(parseInt(req.params.id))

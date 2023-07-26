@@ -1,4 +1,33 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import mongoosePaginate from 'mongoose-paginate-v2'
+
+
+
+
+
+
+import mongoose from 'mongoose';
+
+const productsCollection = "productos"
+
+const ProductsSchema = new mongoose.Schema({
+    title: String,
+    description: String,
+    price: Number,
+    img: String,
+    code: String,
+    stock: Number
+})
+
+ProductsSchema.plugin(mongoosePaginate);
+
+export const productsModel = mongoose.model( productsCollection, ProductsSchema)
+
+
+
+
+
+
 
 export default class ProductManager {
 
